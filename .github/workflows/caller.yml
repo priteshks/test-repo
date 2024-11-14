@@ -1,0 +1,13 @@
+# Caller Workflow (caller.yml)
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/blank.yml
+    # with:
+    #   some_input: "value"
