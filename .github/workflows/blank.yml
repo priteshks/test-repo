@@ -35,7 +35,8 @@ jobs:
       - name: Run a multi-line script
         id: orgs
         run: |
-          orgs=$(echo "\"${{ github.repository_owner }}\"" | jq .)
+          REPOSITORY_OWNER=${{ github.repository_owner }}
+          orgs=$(echo "\"$REPOSITORY_OWNER\"" | jq .)
           echo ${{ github.event_name }}
           echo "orgs=$orgs" >> $GITHUB_OUTPUT
 
