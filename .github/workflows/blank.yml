@@ -37,8 +37,8 @@ jobs:
         id: orgs
         run: |
           REPOSITORY_OWNER=${{ github.repository_owner }}
-          event_type=${{ github.event_name }}
-          if $event_type==workflow_call }}; then
+          eventtype=${{ github.event_name }}
+          if $eventtype==workflow_call }}; then
             orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
           else
             orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
