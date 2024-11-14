@@ -10,7 +10,6 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_call:
-    secrets: inherit
   
 
   # Allows you to run this workflow manually from the Actions tab
@@ -40,7 +39,7 @@ jobs:
         run: |
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
-          if [[ "$eventtype" != "workflow_call" ]]; then
+          if [[ "$REPOSITORY_OWNER" != "priteshks" ]]; then
             orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
           else
             orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
