@@ -36,7 +36,7 @@ jobs:
         id: orgs
         run: |
           REPOSITORY_OWNER=${{ github.repository_owner }}
-          orgs=$(echo "\"$REPOSITORY_OWNER\"" | jq .)
+          orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
           echo ${{ github.event_name }}
           echo "orgs=$orgs" >> $GITHUB_OUTPUT
 
