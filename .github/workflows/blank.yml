@@ -36,7 +36,12 @@ jobs:
         id: orgs
         run: |
           REPOSITORY_OWNER=${{ github.repository_owner }}
-          orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
+          event_type==${{ github.event_name }}
+          if $event_type==workflow_call }}
+            orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
+          else
+            orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
+          fi
           echo ${{ github.event_name }}
           echo "orgs=$orgs" >> $GITHUB_OUTPUT
 
