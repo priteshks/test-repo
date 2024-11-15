@@ -33,12 +33,12 @@ jobs:
       - name: Set repository ID 
         run: echo "REPOSITORY_ID=${{ github.repository }}" >> $GITHUB_ENV
       - name: Validate repository ID 
-        if: ${{ github.event_name == 'push' && env.REPOSITORY_ID != '' && env.REPOSITORY_ID > 0 }} 
+        if: ${{ env.REPOSITORY_ID != '' && env.REPOSITORY_ID > 0 }} 
         run: |
           echo "Valid repository ID: ${{ env.REPOSITORY_ID }}"
         
       - name: Run a one-line script
-        if: ${{ env.REPOSITORY_ID == "priteshks/test-repo" }}
+        if: ${{ env.REPOSITORY_ID == 'priteshks/test-repo' }}
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
