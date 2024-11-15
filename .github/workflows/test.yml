@@ -8,4 +8,4 @@ jobs:
   call-reusable:
     uses: ./.github/workflows/blank.yml
     with:
-      is_e2e_run: true
+      is_tst_run: true
