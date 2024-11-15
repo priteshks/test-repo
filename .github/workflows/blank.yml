@@ -39,7 +39,9 @@ jobs:
         
       - name: Run a one-line script
         if: ${{ env.REPOSITORY_ID == 'priteshks/test-repo' }}
-        run: echo Hello, world!
+        run: |
+          echo Hello, world!
+          touch orgs.json
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -54,6 +56,15 @@ jobs:
           fi
           echo ${{ github.event_name }}
           echo "orgs=$orgs" >> $GITHUB_OUTPUT
+
+
+      - name: Check if orgs.json exists 
+        run: |
+          if [ -f ./orgs.json ]; then 
+            echo "orgs.json file exists." 
+          else 
+            echo "orgs.json file does not exist." 
+          fi
 
   process-orgs:
     needs: build
