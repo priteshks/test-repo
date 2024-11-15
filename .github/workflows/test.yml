@@ -1,5 +1,5 @@
 # Caller Workflow (caller.yml)
-name: Caller Workflow
+name: Renamed Caller Workflow
 
 on:
   workflow_dispatch:
