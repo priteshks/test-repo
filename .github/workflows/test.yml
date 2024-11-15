@@ -7,5 +7,5 @@ on:
 jobs:
   call-reusable:
     uses: ./.github/workflows/blank.yml
-    # with:
-    #   some_input: "value"
+    with:
+      is_e2e_run: true
