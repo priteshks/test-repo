@@ -10,6 +10,11 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_call:
+    inputs:
+      is_tst_run:
+        description: only for end-2-end test workflow
+        type: boolean
+        default: false
   
 
   # Allows you to run this workflow manually from the Actions tab
@@ -47,9 +52,12 @@ jobs:
       - name: Run a multi-line script
         id: orgs
         run: |
+          is_e2e_run=""
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
-          if [[ "$REPOSITORY_OWNER" == "priteshks" ]]; then
+          if [ "$is_e2e_run" = true ]; then 
+            orgs=[$(echo "Testrun" | jq .)]
+          elif [[ "$REPOSITORY_OWNER" == "priteshks" ]]; then
             orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
           else
             orgs=[$(echo "\"$REPOSITORY_OWNER\"" | jq .)]
