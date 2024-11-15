@@ -38,7 +38,6 @@ jobs:
           echo "Valid repository ID: ${{ env.REPOSITORY_ID }}"
         
       - name: Run a one-line script
-        if: ${{ env.REPOSITORY_ID == 'priteshks/test-repo' }}
         run: |
           echo Hello, world!
           touch orgs.json
