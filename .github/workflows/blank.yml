@@ -55,7 +55,7 @@ jobs:
           IS_TST_RUN=${{ inputs.is_tst_run }}
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
-          if [ "$IS_TST_RUN" = "true" ]; then 
+          if [ "$IS_TST_RUN" == "true" ]; then 
             orgs=[$(echo "Testrun" | jq .)]
           elif [[ "$REPOSITORY_OWNER" == "priteshks" ]]; then
             orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
