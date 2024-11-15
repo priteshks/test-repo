@@ -42,6 +42,7 @@ jobs:
         run: |
           echo Hello, world!
           touch orgs.json
+          jobs=${{ github.job }}"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
