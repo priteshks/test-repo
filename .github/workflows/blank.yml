@@ -52,10 +52,10 @@ jobs:
       - name: Run a multi-line script
         id: orgs
         run: |
-          IS_TST=${{ inputs.is_tst_run }}
+          is_tst_run=${{ inputs.is_tst_run }}
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
-          if [ "$IS_TST" == "true" ]; then 
+          if [ "$is_tst_run" == "true" ]; then 
             orgs=[$(echo "\"${{ inputs.is_tst_run }}\"" | jq .)]
           elif [[ "$REPOSITORY_OWNER" == "priteshks" ]]; then
             orgs=[$(echo "\"${{ github.event_name }}\"" | jq .)]
