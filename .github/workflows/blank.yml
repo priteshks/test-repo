@@ -38,7 +38,7 @@ jobs:
           echo "Valid repository ID: ${{ env.REPOSITORY_ID }}"
         
       - name: Run a one-line script
-        if: ${{ env.REPOSITORY_ID == ${{ github.repository }} }}
+        if: ${{ env.REPOSITORY_ID == 'priteshks/test-repo' }}
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
