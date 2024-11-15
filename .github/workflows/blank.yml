@@ -52,7 +52,7 @@ jobs:
       - name: Run a multi-line script
         id: orgs
         run: |
-          IS_TST_RUN=${{ inputs.is_tst_run }}
+          IS_TST_RUN="${{ inputs.is_tst_run }}"
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
           if [ "$IS_TST_RUN" == "true" ]; then 
