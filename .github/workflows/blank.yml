@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
   workflow_call:
     inputs:
-      is_tst_run:
+      is_e2e_run:
         description: only for end-2-end test workflow
         type: boolean
         default: false
@@ -52,7 +52,7 @@ jobs:
       - name: Run a multi-line script
         id: orgs
         run: |
-          is_e2e_run=""
+          is_e2e_run=${{ inputs.is_e2e_run }}
           REPOSITORY_OWNER=${{ github.repository_owner }}
           eventtype=${{ github.event_name }}
           if [ "$is_e2e_run" = true ]; then 
