@@ -54,7 +54,6 @@ jobs:
         run: |
           IS_TST_RUN=${{ inputs.is_tst_run }}
           REPOSITORY_OWNER=${{ github.repository_owner }}
-          SCRAP= ${{context.repo.repo}}
           eventtype=${{ github.event_name }}
           if [ "$IS_TST_RUN" = true ]; then 
             orgs=[$(echo "Testrun" | jq .)]
