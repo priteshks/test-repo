@@ -33,7 +33,7 @@ jobs:
       - name: Set repository ID 
         run: echo "REPOSITORY_ID=${{ secrets.REPOSITORY_ID }}" >> $GITHUB_ENV
       - name: Validate repository ID 
-        if: ${{ github.event_name == 'push' && env.REPOSITORY_ID != '' && env.REPOSITORY_ID =~ '^[0-9]+$' && env.REPOSITORY_ID > 0 }} 
+        if: ${{ github.event_name == 'push' && env.REPOSITORY_ID != '' && env.REPOSITORY_ID > 0 }} 
         run: |
           echo "Valid repository ID: ${{ env.REPOSITORY_ID }}"
         
