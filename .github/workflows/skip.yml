@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: First Step
-        id: step1
+        id: github.repository == 'priteshks/not-repo'
         run: echo "Running the first step"
 
       - name: Second Step
