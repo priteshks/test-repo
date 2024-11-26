@@ -15,8 +15,9 @@ jobs:
         run: echo "Running the first step"
 
       - name: Second Step
+        if: github.repository == 'priteshks/not-repo'
         id: step2
-        run: exit 1  # Simulating failure for demonstration
+        run: echo "Running the second step"  # Simulating failure for demonstration
 
       - name: Conditional Step
         if: ${{ steps.step1.outcome == 'failure' || steps.step1.outcome == 'skipped' }}
