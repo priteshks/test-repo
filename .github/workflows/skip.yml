@@ -1,0 +1,23 @@
+name: Conditional Steps
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: First Step
+        id: step1
+        run: echo "Running the first step"
+
+      - name: Second Step
+        id: step2
+        run: exit 1  # Simulating failure for demonstration
+
+      - name: Conditional Step
+        if: ${{ steps.step1.outcome == 'failure' || steps.step1.outcome == 'skipped' }}
+        run: echo "This step runs if the first step failed or was skipped"
