@@ -31,7 +31,7 @@ runs:
 
     - name: Set up Python 
       uses: actions/setup-python@v2 
-      shell: bash
+      # shell: bash
       with: 
         python-version: '3.x'
         
