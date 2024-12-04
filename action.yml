@@ -35,12 +35,13 @@ runs:
       with: 
         python-version: '3.x'
         
+    - name: Run goodbye.sh
+      run: goodbye.sh
+      shell: bash
+        
     - name: Run python script
       run: python test.py
       shell: bash
       
 
-    # - name: Run goodbye.sh
-    #   run: goodbye.sh
-    #   shell: bash
 
