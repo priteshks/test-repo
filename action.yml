@@ -28,8 +28,11 @@ runs:
       shell: bash
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
+        
+    - name: Run python file
+      run: python test.py
 
-    - name: Run goodbye.sh
-      run: goodbye.sh
-      shell: bash
+    # - name: Run goodbye.sh
+    #   run: goodbye.sh
+    #   shell: bash
 
