@@ -28,9 +28,15 @@ runs:
       shell: bash
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - name: Set up Python 
+      uses: actions/setup-python@v2 
+      with: 
+        python-version: '3.x'
         
-    - name: Run python file
+    - name: Run python script
       run: python test.py
+      
 
     # - name: Run goodbye.sh
     #   run: goodbye.sh
