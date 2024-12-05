@@ -15,10 +15,19 @@ on:
         description: only for end-2-end test workflow
         type: boolean
         default: false
+      base_repo:
+        description: only for end-2-end test workflow
+        type: string
+        default: priteshks/test-repo
   
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      base_repo:
+        description: only for end-2-end test workflow
+        type: string
+        default: priteshks/test-repo
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
