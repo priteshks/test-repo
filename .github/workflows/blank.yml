@@ -19,6 +19,10 @@ on:
         description: only for end-2-end test workflow
         type: string
         default: priteshks/test-repo
+      TOKEN_WORKFLOW: 
+        description: 'GitHub Token' 
+        required: true 
+        type: string
   
 
   # Allows you to run this workflow manually from the Actions tab
