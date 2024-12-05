@@ -85,3 +85,26 @@ jobs:
     steps:
       - name: Complete
         run: echo "Organization ${{ matrix.org}} processed successfully."
+
+      - name: Get workflow reference
+        # if: ${{ inputs.base_repo }}
+        id: workflows-ref
+        run: |
+          api_response=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          echo $api_response
+
+          workflow_shas=$(echo "$api_response" | jq -r '[.referenced_workflows[] | select(.path | startswith("${{ inputs.base_repo }}")) | .sha] | unique')
+          echo $workflow_shas
+          has_multiple_shas=$(echo "$workflow_shas" | jq -r 'length > 1')
+          echo $has_multiple_shas
+          if [[ $has_multiple_shas == "true" ]]
+          then
+            echo "Error: ${{ inputs.base_repo }} has multiple SHAs in this workflow execution, which means there are different versions being called. This is not supported at this moment. SHAs: ${workflow_shas}"
+            exit 1
+          fi
+
+          base_repo_ref=$(echo "$workflow_shas" | jq -r '.[0]')
+          echo $base_repo_ref
+
+          echo "base_repo_ref: $base_repo_ref"
+          echo "base_repo_ref=$base_repo_ref" >> $GITHUB_OUTPUT
