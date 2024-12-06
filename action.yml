@@ -8,8 +8,7 @@ inputs:
     default: 'Hello, world!'
 
 runs:
-  using: 'node12'
-  main: 'dist/index.js'  # Ensure this path is correct; could be index.js or another script
+  using: "composite"
 
   steps:
     - name: 'Setup Node.js environment'
