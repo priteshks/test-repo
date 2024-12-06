@@ -28,10 +28,11 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm install @actions/core
-        working-directory: ./  # Adjust this if your package.json is in a different directory
+        # working-directory: ./  # Adjust this if your package.json is in a different directory
 
       - name: 'List directory contents' 
         run: |
+          cat package-lock.json
           pwd
           ls -lah
           ls -R
