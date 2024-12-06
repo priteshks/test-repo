@@ -6,6 +6,24 @@ inputs:
     description: 'The message to log'
     required: true
     default: 'Hello, world!'
+
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'  # Ensure this path is correct; could be index.js or another script
+
+  steps:
+    - name: 'Setup Node.js environment'
+      run: |
+        # Setup Node.js
+        curl -sL https://deb.nodesource.com/setup_14.x | bash -
+        apt-get install -y nodejs
+        node -v
+        npm -v
+
+    - name: 'Install dependencies'
+      run: |
+        npm install
+
+    - name: 'Run script'
+      run: |
+        node index.js
