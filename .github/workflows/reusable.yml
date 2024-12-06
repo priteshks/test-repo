@@ -1,0 +1,26 @@
+# .github/workflows/reusable.yml
+name: 'Reusable Node.js Action Workflow'
+on:
+  workflow_dispatch:
+    inputs:
+      log-message:
+        required: true
+        type: string
+  
+  workflow_call:
+    inputs:
+      log-message:
+        required: true
+        type: string
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+
+      - name: 'Run Node.js Action'
+        uses: ./  # This points to the current repository containing the action.yml file
+        with:
+          log-message: ${{ inputs.log-message }}
