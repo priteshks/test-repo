@@ -31,7 +31,10 @@ jobs:
         working-directory: ./  # Adjust this if your package.json is in a different directory
 
       - name: 'List directory contents' 
-        run: ls -R
+        run: |
+          pwd
+          ls -lah
+          ls -R
         
       - name: 'Run Node.js Action'
         uses: ./  # This points to the current repository containing the action.yml file
