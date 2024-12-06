@@ -18,11 +18,14 @@ runs:
         apt-get install -y nodejs
         node -v
         npm -v
+      shell: bash
 
     - name: 'Install dependencies'
       run: |
         npm install
+      shell: bash
 
     - name: 'Run script'
       run: |
         node index.js
+      shell: bash
