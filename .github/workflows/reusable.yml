@@ -24,20 +24,20 @@ jobs:
       - name: 'Set up Node.js'
         uses: actions/setup-node@v4.1.0
         with:
-          node-version: '14'  # Specify your desired Node.js version
+          node-version: '20.18.0'  # Specify your desired Node.js version
 
       - name: 'Install dependencies'
         run: npm install @actions/core
         # working-directory: ./  # Adjust this if your package.json is in a different directory
 
-      - name: 'List directory contents' 
-        run: |
-          cat package-lock.json
-          pwd
-          ls -lah
-          ls -R
+      # - name: 'List directory contents' 
+      #   run: |
+      #     cat package-lock.json
+      #     pwd
+      #     ls -lah
+      #     ls -R
         
       - name: 'Run Node.js Action'
-        uses: priteshks/test-action@v1.0  # This points to the current repository containing the action.yml file
+        uses: priteshks/test-action@main # This points to the current repository containing the action.yml file
         with:
           log-message: ${{ inputs.log-message }}
