@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: '20.18.0'  # Specify your desired Node.js version
 
-      - name: 'Install dependencies'
-        run: npm install @actions/core
+      # - name: 'Install dependencies'
+      #   run: npm install @actions/core
         # working-directory: ./  # Adjust this if your package.json is in a different directory
 
       # - name: 'List directory contents' 
