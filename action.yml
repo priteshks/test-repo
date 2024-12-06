@@ -8,24 +8,5 @@ inputs:
     default: 'Hello, world!'
 
 runs:
-  using: "composite"
-
-  steps:
-    - name: 'Setup Node.js environment'
-      run: |
-        # Setup Node.js
-        curl -sL https://deb.nodesource.com/setup_14.x | bash -
-        apt-get install -y nodejs
-        node -v
-        npm -v
-      shell: bash
-
-    - name: 'Install dependencies'
-      run: |
-        npm install
-      shell: bash
-
-    - name: 'Run script'
-      run: |
-        node index.js
-      shell: bash
+  using: 'node12'
+  main: 'index.js'
