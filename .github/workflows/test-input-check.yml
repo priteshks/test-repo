@@ -17,7 +17,7 @@ jobs:
         run: echo "Runner type is ${{ inputs.runner }}"
 
       - name: Conditional Step
-        if: |
+        if: >
           ${{ inputs.runner == 'arn:aws:iam::123456789:role/github-actions' || 
           contains(inputs.runner, 'arn:aws:iam::123456789:role/github-redelivery-webhook') ||
           contains(inputs.runner, 'arn:aws:iam::987654321:role/github-redelivery-webhook') }}
