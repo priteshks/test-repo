@@ -1,0 +1,21 @@
+name: Check Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Type of runner'
+        required: true
+        default: 'github-runner'
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Runner Type
+        id: check-runner
+        run: echo "Runner type is ${{ inputs.runner }}"
+
+      - name: Conditional Step
+        if: ${{ inputs.runner == 'arn:aws:iam::123456789:role/github-actions' || contains(inputs.runner, 'arn:aws:iam::123456789:role/github-redelivery-webhook') }}
+        run: echo "Condition met Runner is 'github-runner' or includes 'github-runner-workflow'"
