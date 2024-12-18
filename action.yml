@@ -22,9 +22,9 @@ runs:
     #     cache: 'npm'
     #     cache-dependency-path: ${{ github.action_path }}/package-lock.json
         
-    - name: install dependency
-      run: npm install @actions/core
-      shell: bash
+    # - name: install dependency
+    #   run: npm install @actions/core
+    #   shell: bash
       
     - name: run node script
       run: |
