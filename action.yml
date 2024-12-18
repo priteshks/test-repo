@@ -14,9 +14,9 @@ runs:
     #   uses: actions/setup-node@v4.1.0
     #   with:
     #     node-version: 20
-    - name: Set Log Message as Environment Variable 
-      run: echo "LOG_MESSAGE=${{ inputs.log-message }}" >> $GITHUB_ENV
-      shell: bash
+    # - name: Set Log Message as Environment Variable 
+    #   run: echo "LOG_MESSAGE=${{ inputs.log-message }}" >> $GITHUB_ENV
+    #   shell: bash
         
     # - name: Set up Node.js with cache 
     #   uses: actions/setup-node@v4.1.0
@@ -36,4 +36,6 @@ runs:
         ls -lah
         # find . -type d -name 'node_modules'
         node ${{ github.action_path }}/index.js
+      env: 
+        LOG_MESSAGE: ${{ inputs.log-message }}
       shell: bash
