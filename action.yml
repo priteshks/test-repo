@@ -31,7 +31,7 @@ runs:
       
     - name: run node script
       run: |
-        cd ${{ github.action_path }}
+        # cd ${{ github.action_path }}
         npm install
         node ${{ github.action_path }}/index.js
       shell: bash
