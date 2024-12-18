@@ -19,6 +19,7 @@ runs:
         
     - Name: install dependency
       run: npm install @actions/core
+      shell: bash
       
     - run: node $GITHUB_ACTION_PATH/index.js
       shell: bash
