@@ -28,6 +28,7 @@ runs:
       
     - name: run node script
       run: |
-        npm install @actions/core
+        cd ${{ github.action_path }}
+        npm install
         node ${{ github.action_path }}/index.js
       shell: bash
