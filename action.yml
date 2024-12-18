@@ -9,4 +9,5 @@ inputs:
 
 runs:
   using: 'node20'
+  pre: 'install-deps.js'
   main: 'index.js'
