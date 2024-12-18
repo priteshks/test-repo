@@ -17,9 +17,10 @@ runs:
         cache: 'npm'
         cache-dependency-path: $GITHUB_ACTION_PATH/package-lock.json
         
-    - Name: install dependency
+    - name: install dependency
       run: npm install @actions/core
       shell: bash
       
-    - run: node $GITHUB_ACTION_PATH/index.js
+    - name: run node script
+      run: node $GITHUB_ACTION_PATH/index.js
       shell: bash
