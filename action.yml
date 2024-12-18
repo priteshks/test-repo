@@ -8,6 +8,14 @@ inputs:
     default: 'Hello, world!'
 
 runs:
-  using: 'node20'
-  pre: 'install-deps.js'
-  main: 'index.js'
+  using: "composite"
+  steps:
+    - name: Set up Node.js 
+      uses: actions/setup-node@v4.1.0
+        with: node-version: '20.18.0'
+        
+    - Name: install dependency
+      run: npm install @actions/core
+      
+    - run: node $GITHUB_ACTION_PATH/index.js
+      shell: bash
