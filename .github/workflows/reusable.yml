@@ -38,6 +38,6 @@ jobs:
       #     ls -R
         
       - name: 'Run Node.js Action'
-        uses: priteshks/test-repo@main # This points to the current repository containing the action.yml file
+        uses: priteshks/test-repo@test-npm-install # This points to the current repository containing the action.yml file
         with:
           log-message: ${{ inputs.log-message }}
