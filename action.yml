@@ -14,6 +14,8 @@ runs:
       uses: actions/setup-node@v4.1.0
       with:
         node-version: 20
+    - name: Set Log Message as Environment Variable 
+      run: echo "LOG_MESSAGE=${{ inputs.log-message }}" >> $GITHUB_ENV
         
     # - name: Set up Node.js with cache 
     #   uses: actions/setup-node@v4.1.0
